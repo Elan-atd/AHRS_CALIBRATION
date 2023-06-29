@@ -57,7 +57,7 @@ And we're able to calibrate in the yaw axis, by slowly rotating the sensor slowl
 
 ●Resources:
 
-**Under the guidance of Nicolas Michel, SBG systems gmail:nicolas.michel@sbg-systems.com**
+**Under the guidance of Nicolas Michel, SBG systems:nicolas.michel@sbg-systems.com**
 
 [https://support.sbg-systems.com/sc/kb/v2/inertial-sensors-installation/magnetic-calibration](https://support.sbg-systems.com/sc/kb/v2/inertial-sensors-installation/magnetic-calibration)
 
