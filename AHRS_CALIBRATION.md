@@ -30,6 +30,8 @@ On observing the yaw value given as the output from the AHRS when connected to j
 ![](RackMultipart20230629-1-9ag2mm_html_f6b92ef1a38abe69.png)
 
 ●Where we can clearly observe the drifting of the yaw angle in the third image, hence we were able to conclude that the AHRS sensor's Solution mode was in " **Vertical-Gyro mode**", which makes an estimate of only roll and pitch angles [only roll and pitch values are taken for EKF estimation] and yaw is missed out to drift. So we had to change it to **"AHRS Mode"** and enable Magnetometers to **"rejection on automatic mode**")
+
+
 ![image](https://github.com/Elan-atd/AHRS_CALIBRATION/assets/136801752/62468e21-1a40-4c96-80fd-d291b46004c3)
 
 
