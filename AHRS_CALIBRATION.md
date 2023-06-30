@@ -2,14 +2,14 @@
 
 # AHRS-Yaw Calibration
 
-# By
-S.Elanchezhiyan and Sathya Narayanan
+                                                                                                  By
+                                                                                                  S.Elanchezhiyan and Sathya Narayanan
 
-# Problem Faced:
+## Problem Faced:
 
-On observing the yaw value given as the output from the AHRS when connected to jetson, the yaw value observed as output was not stable and was constantly increasing.
+>On observing the yaw value given as the output from the AHRS when connected to jetson, the yaw value observed as output was not stable and was constantly increasing.
 
-# Solution
+## Debugging Procedure Followed
 
 ●After identifying the error, we tried to contact SBG-systems, through their official id and got a response from them to record a log file.
 
@@ -37,12 +37,14 @@ On observing the yaw value given as the output from the AHRS when connected to j
 
 ![](RackMultipart20230629-1-9ag2mm_html_9de6b72062a89b4f.png)
 
+## Different Gyro modes:
 ●Vertical gyro mode:
 
 Once roll and pitch angles are initialized, the EKF filter is running in a vertical gyro mode, where **only roll and pitch angles** are estimated. This mode uses a vertical reference and internal gyroscopes to estimate orientation. Therefore, the heading angle is freely drifting. Ship motion data is provided but may have degraded accuracy in dynamic environments.
 
-●We have to change this to AHRS mode in order to make a proper estimation of yaw and to take that under consideration in EKF estimation. This requires a fresh calibration[rotate in yaw axis] of the yaw angle in the system[Place where it is going to be used in the bot].
+>●We have to change this to AHRS mode in order to make a proper estimation of yaw and to take that under consideration in EKF estimation. This requires a fresh calibration[**rotate in yaw axis**] of the yaw angle in the system[**Place where it is going to be used in the bot**].
 
+## Calibration Procedure:
 ●This can possibly be done through the SBG Center software, in the calibration menu, we calibrated in **2d-mode,**
 
 And we're able to calibrate in the yaw axis, by slowly rotating the sensor slowly according to the analysis observed on the software,
@@ -51,17 +53,17 @@ And we're able to calibrate in the yaw axis, by slowly rotating the sensor slowl
 
 ●Later, if the drifting persists, we have to make a 3d recalibration by placing the AHRS in its position in the system and involves effective rotations w.r.t all three axes.
 
-**3d calibration gives the best performance,** but in situations where we cannot rotate the system in all 3 axes, we can perform 2d calibration.
+>**3d calibration gives the best performance,** but in situations where we cannot rotate the system in all 3 axes, we can perform 2d calibration.
 
-●Need to Calibrate:
+## Need to Calibrate:
 
 ●Whenever there is a hard iron or soft iron distortion, A new calibration should be initiated. When a new metallic or magnetic component is added to the system, a new calibration should be initiated, in order to make the AHRS accommodate new magnetic fields, as orientation calculations depend on magnetic fields around it(Earth's Magnetic fields).
 
-●In spite of a calibration rated as "GOOD", the AHRS pursues to show a deflection in the 2nd decimal of radian values, which might cause an offset of approximately 0.5-1 deg, which is completely natural.
+>●In spite of a calibration rated as "GOOD", the AHRS pursues to show a deflection in the 2nd decimal of radian values, which might cause an offset of approximately 0.5-1 deg, which is completely natural.
 
 
 
-●Resources:
+## Resources:
 
 **Under the guidance of Nicolas Michel, SBG systems:nicolas.michel@sbg-systems.com**
 
